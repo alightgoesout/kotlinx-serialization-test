@@ -17,6 +17,8 @@ class Id<@Suppress("unused") T>(val value: UUID) {
 	constructor(): this(UUID.randomUUID())
 	constructor(value: String): this(UUID.fromString(value))
 
+	override fun toString() = value.toString()
+
 	object Serializer : KSerializer<Id<*>> {
 		override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("com.example.Id", STRING)
 
